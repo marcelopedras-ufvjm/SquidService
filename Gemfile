@@ -1,0 +1,10 @@
+ source 'https://rubygems.org'
+
+ gem 'sinatra'
+ gem 'activesupport'
+ gem 'net-ldap'
+ #gem 'dm-core'
+ #gem 'dm-migrations'
+ #gem 'dm-sqlite-adapter'
+ #gem 'dm-validations'
+ #gem 'attr_encrypted'
