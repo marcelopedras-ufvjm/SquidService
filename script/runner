@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+#require_relative '../app'
+
+Dir.glob('./{../lib,../api}/*.rb').each {|file|
+ puts(file)
+ require file
+}
+
+require_relative '../lib/log'
+
+#String Class.method
+eval(ARGV[2])

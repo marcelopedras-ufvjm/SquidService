@@ -1,12 +1,17 @@
+#!/usr/bin/env ruby
+require 'rubygems'
 require 'sinatra/base'
 require 'logger'
 require 'bundler'
 
+
 Bundler.require
 
 $: << '.'
+$: << './lib/'
+$: << './api/'
 
-Dir.glob('./{.}/*.rb').each {|file|
+Dir.glob('./{.,lib,api}/*.rb').each {|file|
  #logger.info(file)
  require file
 }

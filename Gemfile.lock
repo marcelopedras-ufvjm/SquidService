@@ -7,26 +7,46 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    backports (3.6.4)
+    chronic (0.10.2)
     i18n (0.7.0)
-    json (1.8.1)
-    minitest (5.4.3)
-    net-ldap (0.11)
+    json (1.8.2)
+    mime-types (2.4.3)
+    minitest (5.5.1)
+    multi_json (1.10.1)
+    netrc (0.10.3)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rest-client (1.7.3)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    sinatra-contrib (1.4.2)
+      backports (>= 2.0)
+      multi_json
+      rack-protection
+      rack-test
+      sinatra (~> 1.4.0)
+      tilt (~> 1.3)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activesupport
-  net-ldap
+  rest-client
   sinatra
+  sinatra-contrib
+  whenever

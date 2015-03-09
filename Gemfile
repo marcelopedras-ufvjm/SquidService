@@ -1,8 +1,11 @@
  source 'https://rubygems.org'
 
  gem 'sinatra'
+ #gem 'net-ldap'
+ gem 'whenever'
+ gem 'rest-client'
+ gem 'sinatra-contrib'
  gem 'activesupport'
- gem 'net-ldap'
  #gem 'dm-core'
  #gem 'dm-migrations'
  #gem 'dm-sqlite-adapter'
