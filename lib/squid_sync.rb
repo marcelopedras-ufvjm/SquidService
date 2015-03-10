@@ -7,6 +7,7 @@ class SquidSync
   end
   def sync
     #response = {a: 'squid data'}
-    response = RestClient.post("#{@host}/connection/squid_sync", data: {lab1: "Esses são alguns dados", squid_key: Sinatra::Application.settings.squid_key})
+    p = {lab1: "Esses sao alguns dados", squid_key: App.settings.squid_key}
+    RestClient.post("#{@host}/connection/squid_sync", data: p)
   end
 end
