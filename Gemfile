@@ -6,6 +6,7 @@
  gem 'rest-client'
  gem 'sinatra-contrib'
  gem 'activesupport'
+ gem 'thin'
  #gem 'dm-core'
  #gem 'dm-migrations'
  #gem 'dm-sqlite-adapter'

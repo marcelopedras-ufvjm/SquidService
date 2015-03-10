@@ -1,8 +1,6 @@
-#!/usr/bin/env ruby
-require 'rubygems'
-require 'sinatra/base'
-require 'logger'
+#\ -w -o localhost -p 9898
 require 'bundler'
+require 'rack'
 
 
 Bundler.require
@@ -11,17 +9,11 @@ $: << '.'
 $: << './lib/'
 $: << './api/'
 
-Dir.glob('./{.,lib,api}/*.rb').each {|file|
- #logger.info(file)
- require file
+#require_relative './app'
+
+Dir.glob('./{lib,api}/*.rb').each {|file|
+  puts(file)
+  require file
 }
-
-#require './app.rb'
-
-# run Rack::URLMap.new({
-#                          "/connection" => ConnectionController,
-#                          "/login" => LoginController,
-#                          "/" => ApplicationController
-#                      })
 
 run Api

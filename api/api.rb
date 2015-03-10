@@ -1,4 +1,4 @@
-require 'app'
+require_relative '../app'
 require 'json'
 
 class Api < App
@@ -14,8 +14,9 @@ class Api < App
 
   get '/squid_sync' do
     content_type :json
-    response = SquidSync.sync
+    response = SquidSync.new('localhost',9696).sync
     #response = {a: 'squid data'}
     response
   end
 end
+
