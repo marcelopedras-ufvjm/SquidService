@@ -1,17 +1,17 @@
 require_relative '../app'
-require 'to_squid_deny_acl'
+require 'squid_acl'
 require 'json'
 
 class Api < App
 
-  get '/test' do
-    content_type :json
-
-    t = `ls`
-    formatted = t.split("\n")
-    obj = {saida: formatted, nome: 'marcelo', sobrenome: 'pedras'}
-    obj.to_json
-  end
+  # get '/test' do
+  #   content_type :json
+  #
+  #   t = `ls`
+  #   formatted = t.split("\n")
+  #   obj = {saida: formatted, nome: 'marcelo', sobrenome: 'pedras'}
+  #   obj.to_json
+  # end
 
   get '/squid_sync' do
     content_type :json
@@ -20,11 +20,32 @@ class Api < App
     response
   end
 
-  get '/novo_test' do
-    content_type :json
+  # get '/novo_test' do
+  #   content_type :json
+  #
+  #   {a: 1, b:2}.to_json
+  #
+  # end
 
-    {a: 1, b:2}.to_json
+  get '/turn_on' do
 
+  end
+
+  get '/turn_off' do
+
+  end
+
+  # get '/squid_reconfigure' do
+  #   #labs = @request.env['HTTP_DATA']
+  #   labs = params['data']
+  #   labs.to_json
+  # end
+
+  post '/squid_reconfigure' do
+     #labs = @request.env['HTTP_DATA']
+     p = params['params']
+     labs = p['data']
+     labs.to_json
   end
 
   get '/manage/internet/:lab/:status' do
@@ -47,7 +68,7 @@ class Api < App
     end
 
 
-    acl = ToSquidDenyAcl.new
+    acl = SquidAcl.new
     if status == 'on'
       acl.allow_network(lab)
     else

@@ -7,6 +7,9 @@
  gem 'sinatra-contrib'
  gem 'activesupport'
  gem 'thin'
+ gem 'ruby-debug-ide'
+ #gem 'ruby-debug-base' #Não é necessário para debugar
+
  #gem 'dm-core'
  #gem 'dm-migrations'
  #gem 'dm-sqlite-adapter'
