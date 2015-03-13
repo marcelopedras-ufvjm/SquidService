@@ -18,7 +18,7 @@ class SquidAcl
   def deny_network(acl_name, ip_network)
     @acl_folder = acl_name.downcase
     @internet_status = 'off'
-    @acl = "acl #{acl_name} src #{ip_network}
+    @acl = "acl #{acl_name.upcase} src #{ip_network}
      http_access deny #{acl_name.upcase}
      http_access deny #{acl_name.upcase} HTTPS"
   end

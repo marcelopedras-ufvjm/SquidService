@@ -9,11 +9,13 @@ class App < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     set :squid_key => "1234"
+
   end
 
-
   before do
-    authorized? "1234"
+    squid_key =  params['params']['squid_key']
+    authorized? squid_key
+
   end
 
 

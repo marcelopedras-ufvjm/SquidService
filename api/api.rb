@@ -1,5 +1,5 @@
 require_relative '../app'
-require 'squid_acl'
+require_relative '../lib/squid_sync'
 require 'json'
 
 class Api < App
@@ -42,10 +42,35 @@ class Api < App
   # end
 
   post '/squid_reconfigure' do
-     #labs = @request.env['HTTP_DATA']
-     p = params['params']
-     labs = p['data']
-     labs.to_json
+    p = params['params']
+    labs = p['labs']
+    labs = JSON.parse(labs)
+
+    result = SquidSync.subscribe_file labs
+    # result = true
+    # acls = labs.map do |lab|
+    #   acl = SquidAcl.new
+    #   if lab['internet'] == 'true'
+    #     acl.allow_network(lab['lab'])
+    #   else
+    #     acl.deny_network(lab['lab'], lab['ip_range'])
+    #   end
+    #   acl
+    # end
+    #
+    # first_acl = acls.shift
+    # if first_acl
+    #   while acls.count > 0
+    #     first_acl.squid_acls.push(acls.shift)
+    #   end
+    # end
+    #
+    # first_acl.write_acl
+    # first_acl.write_config
+    `squid3 -k reconfigure` if result
+    return {success: result}.to_json
+
+
   end
 
   get '/manage/internet/:lab/:status' do
