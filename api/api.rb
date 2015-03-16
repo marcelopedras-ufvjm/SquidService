@@ -67,7 +67,7 @@ class Api < App
     #
     # first_acl.write_acl
     # first_acl.write_config
-    `squid3 -k reconfigure` if result
+    `sudo squid3 -k reconfigure` if result
     return {success: result}.to_json
 
 
