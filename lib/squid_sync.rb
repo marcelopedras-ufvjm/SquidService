@@ -12,7 +12,7 @@ class SquidSync
   #   RestClient.post("#{@host}/connection/squid_sync", data: p)
   # end
 
-  def self.subscribe_file(labs)
+  def self.overwrite_file(labs)
     begin
       acls = labs.map do |lab|
         acl = SquidAcl.new
@@ -38,5 +38,9 @@ class SquidSync
       print err.backtrace.join("\n")
       return false
     end
+  end
+
+  def self.notify_changes
+
   end
 end

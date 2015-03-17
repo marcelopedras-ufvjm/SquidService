@@ -13,12 +13,12 @@ class Api < App
   #   obj.to_json
   # end
 
-  get '/squid_sync' do
-    content_type :json
-    response = SquidSync.new('localhost',9696).sync
-    #response = {a: 'squid data'}
-    response
-  end
+  # get '/squid_sync' do
+  #   content_type :json
+  #   response = SquidSync.new('localhost',9696).sync
+  #   #response = {a: 'squid data'}
+  #   response
+  # end
 
   # get '/novo_test' do
   #   content_type :json
@@ -27,13 +27,13 @@ class Api < App
   #
   # end
 
-  get '/turn_on' do
-
-  end
-
-  get '/turn_off' do
-
-  end
+  # get '/turn_on' do
+  #
+  # end
+  #
+  # get '/turn_off' do
+  #
+  # end
 
   # get '/squid_reconfigure' do
   #   #labs = @request.env['HTTP_DATA']
@@ -46,7 +46,7 @@ class Api < App
     labs = p['labs']
     labs = JSON.parse(labs)
 
-    result = SquidSync.subscribe_file labs
+    result = SquidSync.overwrite_file labs
     # result = true
     # acls = labs.map do |lab|
     #   acl = SquidAcl.new
