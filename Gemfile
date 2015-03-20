@@ -16,3 +16,5 @@
  gem 'dm-validations'
  gem 'dm-timestamps'
  gem 'attr_encrypted'
+ gem 'test-unit'
+ gem 'debase'

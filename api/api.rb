@@ -1,8 +1,12 @@
 require_relative '../app'
-require_relative '../lib/squid_sync'
+require 'connection'
 require 'json'
 
 class Api < App
+
+  before do
+    content_type :json
+  end
 
   # get '/test' do
   #   content_type :json
@@ -104,6 +108,16 @@ class Api < App
 
     {success: true}.to_json
 
+  end
+
+  post '/sync' do
+    p = params['params']
+    connections_data_as_json = p['data']
+    connections_data = JSON.parse(connections_data_as_json)
+    response = Connection.sync(connections_data)
+    Connection.to_squid_conf
+    Connection.to_whenever_conf
+    response.to_json
   end
 end
 

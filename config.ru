@@ -1,4 +1,4 @@
-#\ -w -o 192.168.1.20 -p 9898
+#\ -w -o localhost -p 9898
 require 'bundler'
 require 'rack'
 
@@ -8,10 +8,11 @@ Bundler.require
 $: << '.'
 $: << './lib/'
 $: << './api/'
+$: << './models/'
 
 #require_relative './app'
 
-Dir.glob('./{lib,api}/*.rb').each {|file|
+Dir.glob('./{lib,api,models}/*.rb').each {|file|
   puts(file)
   require file
 }
