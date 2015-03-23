@@ -119,5 +119,10 @@ class Api < App
     Connection.to_whenever_conf
     response.to_json
   end
+
+  get '/test_up' do
+    response=Connection.notify
+    {success: true}.to_json
+  end
 end
 

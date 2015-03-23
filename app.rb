@@ -13,14 +13,23 @@ class App < Sinatra::Base
   end
 
   before do
-    squid_key =  params['params']['squid_key']
-    authorized? squid_key
+    # begin
+    # squid_key =  params['params']['squid_key']
+    # authorized? squid_key
+    # rescue => e
+    #   to_halt
+    # end
 
   end
 
 
   def authorized? squid_key
     unless squid_key == App.settings.squid_key
+      to_halt
+    end
+  end
+
+  def to_halt
     content_type :json
     resp = {
         'authorized' => false,
@@ -28,7 +37,6 @@ class App < Sinatra::Base
     }
 
     halt(401,resp.to_json)
-    end
   end
 
   run! if __FILE__ == $0

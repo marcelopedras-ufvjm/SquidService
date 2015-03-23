@@ -4,6 +4,7 @@ require 'dm-validations'
 require 'dm-timestamps'
 require 'date'
 require_relative '../lib/squid_acl'
+require 'rest-client'
 
 DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
 DataMapper::Logger.new($stdout, :debug)
@@ -67,10 +68,8 @@ class Connection
   def self.sync(connections_hashs)
     #TODO - tratar exceções
     result = connections_hashs.map do |c|
-      alredy_exits_connection = Connection.first({:room_name => c['room_name']})
-      if alredy_exits_connection
-        connection = alredy_exits_connection
-      else
+      connection = Connection.first({:room_name => c['room_name']})
+      unless connection
         connection = Connection.new
         connection.room_name =  c['room_name']
       end
@@ -183,6 +182,13 @@ class Connection
     end
 
     Connection.to_whenever_conf
+    Connection.to_squid_conf
     #TODO - Adicionar chamada de to_squid_conf para reescrever as configurações do squid, e também chamar squid3 -k reconfigure para recarregar as regras do squid
+    Connection.notify
+  end
+
+  def self.notify
+    data = Connection.list.to_json
+    RestClient.post('localhost:9696/connection/squid_sync', {:data => data, :squid_key=> "1234"})
   end
 end

@@ -1,0 +1,64 @@
+script/runner:12:in `eval': uninitialized constant Connection::RestClient (NameError)
+	from /usr/local/rvm/gems/ruby-2.2.0/gems/dm-core-1.2.1/lib/dm-core/property/lookup.rb:25:in `const_missing'
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:192:in `notify'
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:188:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': uninitialized constant Connection::RestClient (NameError)
+	from /usr/local/rvm/gems/ruby-2.2.0/gems/dm-core-1.2.1/lib/dm-core/property/lookup.rb:25:in `const_missing'
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:192:in `notify'
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:188:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000001fafd10> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x0000000326cc50> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000002472bb8> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000002c1b9f0> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000002cbda98> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000003132650> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000002641818> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x0000000329dd00> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000001682990> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
+script/runner:12:in `eval': undefined method `to_json' for #<Array:0x00000002a8f2d0> (NoMethodError)
+	from /home/marcelo/RubymineProjects/SquidService/models/connection.rb:186:in `up_connection_on_time_out'
+	from (eval):1:in `<main>'
+	from script/runner:12:in `eval'
+	from script/runner:12:in `<main>'
