@@ -90,6 +90,7 @@ DEPENDENCIES
   dm-sqlite-adapter
   dm-timestamps
   dm-validations
+  json
   rest-client
   ruby-debug-ide
   sinatra

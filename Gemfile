@@ -18,3 +18,4 @@
  gem 'attr_encrypted'
  gem 'test-unit'
  gem 'debase'
+ gem 'json'

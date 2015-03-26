@@ -5,6 +5,7 @@ require 'dm-timestamps'
 require 'date'
 require_relative '../lib/squid_acl'
 require 'rest-client'
+require 'json'
 
 DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
 DataMapper::Logger.new($stdout, :debug)
@@ -189,6 +190,6 @@ class Connection
 
   def self.notify
     data = Connection.list.to_json
-    RestClient.post('localhost:9696/connection/squid_sync', {:data => data, :squid_key=> "1234"})
+    RestClient.post('192.168.1.43:9696/connection/squid_sync', {:data => data, :squid_key=> "1234"})
   end
 end
