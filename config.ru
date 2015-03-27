@@ -1,4 +1,4 @@
-#\ -w -o localhost -p 9898
+#\ -w -o 0.0.0.0 -p 9898
 require 'bundler'
 require 'rack'
 

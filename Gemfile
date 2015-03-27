@@ -2,7 +2,7 @@
 
  gem 'sinatra'
  #gem 'net-ldap'
- gem 'whenever'
+ gem 'whenever', :require => false
  gem 'rest-client'
  gem 'sinatra-contrib'
  gem 'activesupport'
@@ -19,3 +19,4 @@
  gem 'test-unit'
  gem 'debase'
  gem 'json'
+ gem 'debase-ruby_core_source'

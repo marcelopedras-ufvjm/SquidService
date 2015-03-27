@@ -190,6 +190,6 @@ class Connection
 
   def self.notify
     data = Connection.list.to_json
-    RestClient.post('192.168.1.43:9696/connection/squid_sync', {:data => data, :squid_key=> "1234"})
+    RestClient.post("#{env['INTERNET_MANAGER']}:9696/connection/squid_sync", {:data => data, :squid_key=> "1234"})
   end
 end
