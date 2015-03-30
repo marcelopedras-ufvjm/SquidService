@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="SquidTests">
+  <component name="PublishConfigData" serverName="SquidTests" filePermissions="509" folderPermissions="509">
     <serverData>
+      <paths name="SquidProduction">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/srv/squid_service/SquidService-master" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
       <paths name="SquidTests">
         <serverdata>
           <mappings>
             <mapping deploy="/srv/squid_service/SquidService-master" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
