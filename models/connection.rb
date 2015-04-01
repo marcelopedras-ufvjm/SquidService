@@ -7,7 +7,7 @@ require_relative '../lib/squid_acl'
 require 'rest-client'
 require 'json'
 
-#DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
+DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
 #DataMapper::Logger.new($stdout, :debug)
 #DataMapper::Model.raise_on_save_failure = true
 

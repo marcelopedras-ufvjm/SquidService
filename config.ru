@@ -18,6 +18,6 @@ Dir.glob('./{lib,api,models}/*.rb').each {|file|
   require file
 }
 
-ENV["RACK_ENV"]='production'
+#ENV["RACK_ENV"]='production'
 
 run Api
