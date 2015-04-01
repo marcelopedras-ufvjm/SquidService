@@ -45,12 +45,12 @@ class Api < App
   #   labs.to_json
   # end
 
-  post '/squid_reconfigure' do
-    p = params['params']
-    labs = p['labs']
-    labs = JSON.parse(labs)
-
-    result = SquidSync.overwrite_file labs
+  # post '/squid_reconfigure' do
+  #   p = params['params']
+  #   labs = p['labs']
+  #   labs = JSON.parse(labs)
+  #
+  #   result = SquidSync.overwrite_file labs
     # result = true
     # acls = labs.map do |lab|
     #   acl = SquidAcl.new
@@ -71,44 +71,44 @@ class Api < App
     #
     # first_acl.write_acl
     # first_acl.write_config
-    `sudo squid3 -k reconfigure` if result
-    return {success: result}.to_json
+  #   `sudo squid3 -k reconfigure` if result
+  #   return {success: result}.to_json
+  #
+  #
+  # end
 
-
-  end
-
-  get '/manage/internet/:lab/:status' do
-    content_type :json
-    a_labs  = %w"lab1 lab2 lab3 lab4 lab5"
-    a_status = %w"on off"
-    a_network_ips = {
-        lab1: '192.168.11.0/24',
-        lab2: '192.168.12.0/24',
-        lab3: '192.168.13.0/24',
-        lab4: '192.168.14.0/24',
-        lab5: '192.168.15.0/24'
-    }
-
-    lab = params['lab']
-    status = params['status']
-
-    unless a_labs.include?(lab) && a_status.include?(status)
-      return {error: 'parametros invalidos'}.to_json
-    end
-
-
-    acl = SquidAcl.new
-    if status == 'on'
-      acl.allow_network(lab)
-    else
-      acl.deny_network(lab,a_network_ips[lab.to_sym])
-    end
-
-    acl.write_acl
-
-    {success: true}.to_json
-
-  end
+  # get '/manage/internet/:lab/:status' do
+  #   content_type :json
+  #   a_labs  = %w"lab1 lab2 lab3 lab4 lab5"
+  #   a_status = %w"on off"
+  #   a_network_ips = {
+  #       lab1: '192.168.11.0/24',
+  #       lab2: '192.168.12.0/24',
+  #       lab3: '192.168.13.0/24',
+  #       lab4: '192.168.14.0/24',
+  #       lab5: '192.168.15.0/24'
+  #   }
+  #
+  #   lab = params['lab']
+  #   status = params['status']
+  #
+  #   unless a_labs.include?(lab) && a_status.include?(status)
+  #     return {error: 'parametros invalidos'}.to_json
+  #   end
+  #
+  #
+  #   acl = SquidAcl.new
+  #   if status == 'on'
+  #     acl.allow_network(lab)
+  #   else
+  #     acl.deny_network(lab,a_network_ips[lab.to_sym])
+  #   end
+  #
+  #   acl.write_acl
+  #
+  #   {success: true}.to_json
+  #
+  # end
 
   post '/sync' do
     p = params['params']
@@ -125,9 +125,9 @@ class Api < App
   #   {success: true}.to_json
   # end
 
-  get '/test_up' do
-    Connection.up_connection_on_time_out
-    {success: true}.to_json
-  end
+  # get '/test_up' do
+  #   Connection.up_connection_on_time_out
+  #   {success: true}.to_json
+  # end
 end
 

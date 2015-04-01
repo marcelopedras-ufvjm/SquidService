@@ -3,6 +3,14 @@ require_relative './models/connection'
 DataMapper::Model.raise_on_save_failure = true
 
 
+if ENV['APP_ENVIRONMENT'] == 'production'
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/production.db")
+elsif ENV['APP_ENVIRONMENT'] == 'test'
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/test.db")
+else
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+end
+
 # id: 1,
 # room_name: 260,
 # connected: true,
@@ -21,3 +29,21 @@ c2.room_name = 'lab2'
 c2.connected = true
 c2.ip_range = '192.168.12.0/24'
 c2.save
+
+c3 = Connection.new
+c3.room_name = 'lab3'
+c3.connected = true
+c3.ip_range = '192.168.13.0/24'
+c3.save
+
+c4 = Connection.new
+c4.room_name = 'lab4'
+c4.connected = true
+c4.ip_range = '192.168.14.0/24'
+c4.save
+
+c5 = Connection.new
+c5.room_name = 'lab5'
+c5.connected = true
+c5.ip_range = '192.168.15.0/24'
+c5.save

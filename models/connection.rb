@@ -7,9 +7,9 @@ require_relative '../lib/squid_acl'
 require 'rest-client'
 require 'json'
 
-DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
-DataMapper::Logger.new($stdout, :debug)
-DataMapper::Model.raise_on_save_failure = true
+#DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
+#DataMapper::Logger.new($stdout, :debug)
+#DataMapper::Model.raise_on_save_failure = true
 
 class Connection
 
@@ -190,6 +190,7 @@ class Connection
 
   def self.notify
     data = Connection.list.to_json
+    #TODO - Mudar squid_key para enviroment e usar algum esquema de criptografia
     RestClient.post("#{ENV['INTERNET_MANAGER_HOST']}:9696/connection/squid_sync", {:data => data, :squid_key=> "1234"})
   end
 end
