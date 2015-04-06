@@ -117,6 +117,7 @@ class Api < App
     response = Connection.sync(connections_data)
     Connection.to_squid_conf
     Connection.to_whenever_conf
+    `sudo squid -k reconfigure`
     response.to_json
   end
   #

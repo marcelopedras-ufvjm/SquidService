@@ -3,12 +3,17 @@ require_relative './models/connection'
 DataMapper::Model.raise_on_save_failure = true
 
 
-if ENV['APP_ENVIRONMENT'] == 'production'
-  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/production.db")
-elsif ENV['APP_ENVIRONMENT'] == 'test'
-  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/test.db")
+env = ARGV[0]
+path =  "sqlite3://#{Dir.pwd}"
+
+puts path
+
+if env == 'production'
+  DataMapper.setup(:default, "#{path}/production.db")
+elsif env == 'test'
+  DataMapper.setup(:default, "#{path}/test.db")
 else
-  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+  DataMapper.setup(:default, "#{path}/development.db")
 end
 
 # id: 1,

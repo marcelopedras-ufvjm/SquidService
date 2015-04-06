@@ -7,7 +7,7 @@ require_relative '../lib/squid_acl'
 require 'rest-client'
 require 'json'
 
-DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
+#DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","development.db"))}")
 #DataMapper::Logger.new($stdout, :debug)
 #DataMapper::Model.raise_on_save_failure = true
 
@@ -185,6 +185,7 @@ class Connection
     Connection.to_whenever_conf
     Connection.to_squid_conf
     #TODO - Adicionar chamada de to_squid_conf para reescrever as configurações do squid, e também chamar squid3 -k reconfigure para recarregar as regras do squid
+    `sudo squid -k reconfigure`
     Connection.notify
   end
 

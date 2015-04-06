@@ -7,6 +7,15 @@
 # require_relative file
 #}
 
+
 require_relative '../models/connection'
+
+if ENV['APP_ENVIRONMENT'] == 'production'
+  DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","production.db"))}")
+elsif ENV['APP_ENVIRONMENT'] == 'test'
+  DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","production.db"))}")
+else
+  DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.join(File.dirname(__FILE__), "..","production.db"))}")
+end
 
 eval(ARGV[2])
