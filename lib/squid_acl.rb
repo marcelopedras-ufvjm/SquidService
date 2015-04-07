@@ -19,8 +19,8 @@ class SquidAcl
     @acl_folder = acl_name.downcase
     @internet_status = 'off'
     @acl = "acl #{acl_name.upcase} src #{ip_network}
-     http_access deny #{acl_name.upcase}
-     http_access deny #{acl_name.upcase} HTTPS"
+     http_access deny #{acl_name.upcase} !INTERNET-MANAGER
+     http_access deny #{acl_name.upcase} HTTPS !INTERNET-MANAGER"
   end
 
   def allow_network(acl_name) #only write blank file
