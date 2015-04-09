@@ -15,7 +15,7 @@ class App < Sinatra::Base
   configure :development do
     DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
     register Sinatra::Reloader
-    set :squid_key => "1234"
+    #set :squid_key => "1234"
     #ENV['SQUID_HOST'] = "192.168.70.33"
     #ENV['INTERNET_MANAGER_HOST'] = "192.168.70.34"
     #ENV['LDAP_HOST'] = "192.168.70.35"
@@ -30,18 +30,17 @@ class App < Sinatra::Base
   end
 
   before do
-    # begin
-    # squid_key =  params['params']['squid_key']
-    # authorized? squid_key
-    # rescue => e
-    #   to_halt
-    # end
-
+    begin
+    squid_key =  params['params']['squid_key']
+    authorized? squid_key
+    rescue => e
+      to_halt
+    end
   end
 
 
   def authorized? squid_key
-    unless squid_key == App.settings.squid_key
+    unless squid_key == ENV['SQUID_KEY'] #App.settings.squid_key
       to_halt
     end
   end

@@ -192,6 +192,7 @@ class Connection
   def self.notify
     data = Connection.list.to_json
     #TODO - Mudar squid_key para enviroment e usar algum esquema de criptografia
-    RestClient.post("#{ENV['INTERNET_MANAGER_HOST']}:9696/connection/squid_sync", {:data => data, :squid_key=> "1234"})
+    squid_key = ENV['SQUID_KEY']
+    RestClient.post("#{ENV['INTERNET_MANAGER_HOST']}:9696/connection/squid_sync", {:data => data, :squid_key=> squid_key})
   end
 end
